@@ -1,7 +1,7 @@
 """
 ITGeeker Gold Widget - 主入口
 软件名称: ITGeeker Gold Widget
-版本: v1.3.1.0
+版本: v1.3.3.0
 开发者: 技术奇客ITGeeker.net
 网址: https://www.itgeeker.net
 Emoji图标: 🧈
@@ -17,9 +17,9 @@ from PySide6.QtWidgets import QApplication
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QFont
 
-from config import load_config, save_config, APP_NAME, APP_EMOJI
+from config import load_config, save_config, APP_NAME, APP_VERSION
 from main_window import GoldWidget
-from tray import GoldTrayIcon, make_emoji_icon
+from tray import GoldTrayIcon, load_app_icon
 
 
 def main():
@@ -30,11 +30,11 @@ def main():
 
     app = QApplication(sys.argv)
     app.setApplicationName(APP_NAME)
-    app.setApplicationVersion("1.3.1.0")
+    app.setApplicationVersion(APP_VERSION.replace("v", ""))
     app.setOrganizationName("ITGeeker.net")
 
-    # 设置应用图标（任务栏 & 窗口标题栏共用 Emoji 图标）
-    app_icon = make_emoji_icon(APP_EMOJI, 128)
+    # 设置应用图标（任务栏 & 窗口标题栏共用 img/ 下的真实图标）
+    app_icon = load_app_icon(128)
     app.setWindowIcon(app_icon)
 
     # 设置全局字体（支持中文 + Emoji）

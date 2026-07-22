@@ -1,16 +1,26 @@
 # -*- mode: python ; coding: utf-8 -*-
 import sys, os
 # 添加项目路径以便导入 version_info
-sys.path.insert(0, r'd:\git_geeker\geeker_dev\python_dev\py_fin\itgeeker_gold_widget')
+sys.path.insert(0, os.path.dirname(os.path.abspath(SPEC)))
 from version_info import VERSION
 
 block_cipher = None
 
+# 项目根目录（spec 文件所在目录）
+PROJECT_ROOT = os.path.dirname(os.path.abspath(SPEC))
+ICON_PATH = os.path.join(PROJECT_ROOT, 'img', 'gold_widget.ico')
+
 a = Analysis(
     ['main.py'],
-    pathex=[r'd:\git_geeker\geeker_dev\python_dev\py_fin\itgeeker_gold_widget'],
+    pathex=[PROJECT_ROOT],
     binaries=[],
-    datas=[],
+    datas=[
+        # 打包时把 img/ 目录下的图标一并带进 exe 资源目录（运行时通过 resource_path 加载）
+        (os.path.join(PROJECT_ROOT, 'img', 'gold_widget.ico'),
+         'img'),
+        (os.path.join(PROJECT_ROOT, 'img', 'gold_widget_310x310_Logo.png'),
+         'img'),
+    ],
     hiddenimports=[
         'PySide6',
         'PySide6.QtCore',
@@ -56,6 +66,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=ICON_PATH,    # ⭐ EXE 文件图标（任务栏 / 资源管理器 / 快捷方式）
     version=VERSION,  # Windows 版本信息
 )
 

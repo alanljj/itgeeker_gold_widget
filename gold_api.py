@@ -5,7 +5,7 @@ ITGeeker Gold Widget - 黄金价格数据获取模块
   2. GoldPrice.org JSON（人民币/克 或 美元/盎司）
   3. Yahoo Finance GC=F（美元/盎司）→ 可选汇率转换
 开发者: 技术奇客ITGeeker.net
-版本: v1.3.1.0
+版本: v1.3.3.0
 """
 
 import requests

@@ -1,20 +1,30 @@
 """
 ITGeeker Gold Widget - 系统托盘模块
 开发者: 技术奇客ITGeeker.net
-版本: v1.3.1.0
+版本: v1.3.3.0
 """
+
+import os
 
 from PySide6.QtWidgets import QSystemTrayIcon, QMenu, QApplication
 from PySide6.QtGui import QIcon, QAction, QPixmap, QPainter, QColor, QFont
 from PySide6.QtCore import Qt, QRect
 import webbrowser
 
-from config import APP_NAME, APP_VERSION, APP_EMOJI, APP_URL, APP_DEVELOPER
+from config import (
+    APP_NAME,
+    APP_VERSION,
+    APP_EMOJI,
+    APP_URL,
+    APP_DEVELOPER,
+    RUNTIME_APP_ICON,
+    RUNTIME_APP_LOGO,
+)
 
 
 def make_emoji_icon(emoji: str = "🧈", size: int = 64) -> QIcon:
     """
-    用 Emoji 字符生成 QIcon（在 Windows 上 Emoji 字体渲染为彩色图标）
+    用 Emoji 字符生成 QIcon（仅作为 PNG/ICO 缺失时的兜底方案）
     """
     pixmap = QPixmap(size, size)
     pixmap.fill(Qt.transparent)
@@ -37,6 +47,22 @@ def make_emoji_icon(emoji: str = "🧈", size: int = 64) -> QIcon:
     return QIcon(pixmap)
 
 
+def load_app_icon(preferred_size: int = 64) -> QIcon:
+    """
+    加载应用图标：优先使用 img/gold_widget.ico（多尺寸自适应），
+    次选 img/gold_widget_310x310_Logo.png，最后回退到 Emoji 兜底。
+    """
+    # 1) ICO 优先 —— 包含 16/32/48/64/128/256 多分辨率，Windows 任务栏 / Alt-Tab 自动选最佳
+    for path in (RUNTIME_APP_ICON, RUNTIME_APP_LOGO):
+        if path and os.path.exists(path):
+            icon = QIcon(path)
+            if not icon.isNull():
+                return icon
+
+    # 2) 兜底：Emoji 渲染
+    return make_emoji_icon(APP_EMOJI, preferred_size)
+
+
 class GoldTrayIcon(QSystemTrayIcon):
     """系统托盘图标"""
 
@@ -45,10 +71,9 @@ class GoldTrayIcon(QSystemTrayIcon):
         self._widget = widget
         self._cfg = cfg
 
-        # 使用 Emoji 生成图标
-        icon = make_emoji_icon(APP_EMOJI, 64)
-        self.setIcon(icon)
-        self.setToolTip(f"{APP_EMOJI} {APP_NAME}\n版本: {APP_VERSION}")
+        # 使用真实 PNG/ICO 图标
+        self.setIcon(load_app_icon(64))
+        self.setToolTip(f"{APP_NAME}\n版本: {APP_VERSION}")
 
         self._build_menu()
 

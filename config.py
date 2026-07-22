@@ -2,17 +2,48 @@
 ITGeeker Gold Widget - 配置管理模块
 开发者: 技术奇客ITGeeker.net
 网址: https://www.itgeeker.net
-版本: v1.3.1.0
+版本: v1.3.3.0
 """
 
 import json
 import os
+import sys
 
 APP_NAME = "ITGeeker Gold Widget"
-APP_VERSION = "v1.3.1.0"
+APP_VERSION = "v1.3.3.0"
 APP_DEVELOPER = "技术奇客ITGeeker.net"
 APP_URL = "https://www.itgeeker.net"
 APP_EMOJI = "🧈"
+
+# ---------------------------------------------------------------------------
+# 图标资源（打包到 exe / 运行时加载）
+# ---------------------------------------------------------------------------
+# 项目根目录 = 当前文件所在目录
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+ICON_DIR = os.path.join(PROJECT_ROOT, "img")
+APP_ICON_ICO = os.path.join(ICON_DIR, "gold_widget.ico")       # Windows EXE 图标 + 多尺寸
+APP_LOGO_PNG = os.path.join(ICON_DIR, "gold_widget_310x310_Logo.png")  # 托盘/窗口大图标
+
+
+def resource_path(relative_path: str) -> str:
+    """
+    获取资源文件的绝对路径，兼容开发模式与 PyInstaller 单文件 / 目录模式。
+
+    - 开发模式：相对项目根目录解析
+    - PyInstaller --onefile：解压到 sys._MEIPASS 临时目录
+    - PyInstaller 普通目录：相对可执行文件所在目录
+    """
+    if getattr(sys, "frozen", False):
+        # 打包后：优先 _MEIPASS（--onefile），否则取 exe 同级目录
+        base = getattr(sys, "_MEIPASS", os.path.dirname(sys.executable))
+    else:
+        base = PROJECT_ROOT
+    return os.path.join(base, relative_path)
+
+
+# 运行时使用的图标路径（绝对路径，便于 QIcon 直接加载）
+RUNTIME_APP_ICON = resource_path(os.path.join("img", "gold_widget.ico"))
+RUNTIME_APP_LOGO = resource_path(os.path.join("img", "gold_widget_310x310_Logo.png"))
 
 # 配置文件路径（存放在用户目录下）
 CONFIG_DIR = os.path.join(os.path.expanduser("~"), "itgeeker_widget_config")

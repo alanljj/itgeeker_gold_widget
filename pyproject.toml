@@ -1,0 +1,15 @@
+[project]
+name = "itgeeker-gold-widget"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "pyside6>=6.11.1",
+    "requests>=2.34.2",
+]
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.21.0",
+]
