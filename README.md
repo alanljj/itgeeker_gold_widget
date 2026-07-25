@@ -155,10 +155,8 @@ python -m PyInstaller itgeeker_gold_widget.spec --clean --noconfirm
 
 ## 开源协议
 
-本项目文档声明以 **MIT License** 协议开源，使用、修改、分发与商用前请保留原作者版权声明。
-
-> ⚠️ **关于 `LICENSE` 文件**：当前仓库根目录尚未包含独立的 `LICENSE` 文本文件，本 README 中的协议声明仅为项目意图说明，**不构成具备法律效力的完整协议文本**。建议在正式对外发布（包含分发二进制、打包镜像或上架渠道）之前补齐一份标准的 MIT `LICENSE` 文件，使协议条款具备独立的、可机读的完整形式；如需参考文本，可参阅 [opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)。在 LICENSE 文件补齐之前的过渡期间，请以本声明的意图为准并尊重原作者的署名权。
-
+> **木兰宽松许可证，第 2 版（**Mulan Permissive Software License, Version 2, Mulan PSL v2**）**
+> 2020 年 1 月：http://license.coscl.org.cn/MulanPSL2
 ---
 
 <div align="center">
