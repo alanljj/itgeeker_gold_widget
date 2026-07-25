@@ -14,7 +14,7 @@
 
 <br>
 
-[仓库主页](https://gitee.com/itgeeker/itgeeker_gold_widget) · [问题反馈](https://gitee.com/itgeeker/itgeeker_gold_widget/issues) · [开发者主页](https://www.itgeeker.net)
+[Gitee仓库主页](https://gitee.com/itgeeker/itgeeker_gold_widget) · [Github仓库主页](https://github.com/alanljj/itgeeker_gold_widget) · [问题反馈](https://gitee.com/itgeeker/itgeeker_gold_widget/issues) · [ITGeeker主页](https://www.itgeeker.net)
 
 </div>
 
