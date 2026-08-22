@@ -2,7 +2,7 @@
 ITGeeker Gold Widget - 配置管理模块
 开发者: 技术奇客ITGeeker.net
 网址: https://www.itgeeker.net
-版本: v1.3.3.0
+版本: v1.3.5.0
 """
 
 import json
@@ -10,7 +10,7 @@ import os
 import sys
 
 APP_NAME = "ITGeeker Gold Widget"
-APP_VERSION = "v1.3.3.0"
+APP_VERSION = "v1.3.5.0"
 APP_DEVELOPER = "技术奇客ITGeeker.net"
 APP_URL = "https://www.itgeeker.net"
 APP_EMOJI = "🧈"

@@ -1,7 +1,7 @@
 """
 ITGeeker Gold Widget - 系统托盘模块
 开发者: 技术奇客ITGeeker.net
-版本: v1.3.3.0
+版本: v1.3.5.0
 """
 
 import os

@@ -2,7 +2,7 @@
 ITGeeker Gold Widget - 主窗口 Widget
 开发者: 技术奇客ITGeeker.net
 网址: https://www.itgeeker.net
-版本: v1.3.3.0
+版本: v1.3.5.0
 """
 
 from PySide6.QtWidgets import (

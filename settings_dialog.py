@@ -1,7 +1,7 @@
 """
 ITGeeker Gold Widget - 设置对话框
 开发者: 技术奇客ITGeeker.net
-版本: v1.3.3.0
+版本: v1.3.5.0
 """
 
 from PySide6.QtWidgets import (

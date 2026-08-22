@@ -1,7 +1,7 @@
 """
 ITGeeker Gold Widget - 主入口
 软件名称: ITGeeker Gold Widget
-版本: v1.3.3.0
+版本: v1.3.5.0
 开发者: 技术奇客ITGeeker.net
 网址: https://www.itgeeker.net
 Emoji图标: 🧈

@@ -7,7 +7,7 @@
 <br>
 
 <!-- CI 徽章预留位：未来接入持续集成后在此处插入构建状态徽章 -->
-![Version](https://img.shields.io/badge/version-v1.3.3.0-d4af37?style=flat-square&label=%E7%89%88%E6%9C%AC)
+![Version](https://img.shields.io/badge/version-v1.3.5.0-d4af37?style=flat-square&label=%E7%89%88%E6%9C%AC)
 ![Python](https://img.shields.io/badge/python-3.14%2B-3776ab?style=flat-square&logo=python&logoColor=white)
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-0078d4?style=flat-square&logo=windows&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
